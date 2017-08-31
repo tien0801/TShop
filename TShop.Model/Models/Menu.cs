@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TShop.Model.Model
+namespace TShop.Model.Models
 {
     [Table("Menus")]
     public class Menu
@@ -28,7 +28,7 @@ namespace TShop.Model.Model
         [ForeignKey("GroupID")]
         public virtual MenuGroup MenuGroup { set; get; }
 
-        [MaxLength(10)]
+            [MaxLength(10)]
         public string Target { set; get; }
 
         
