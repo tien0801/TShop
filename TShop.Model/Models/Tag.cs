@@ -8,7 +8,8 @@ namespace TShop.Model.Models
     {
         [Key]
         [MaxLength(50)]
-        public int ID { set; get; }
+        [Column(TypeName ="varchar")]
+        public string ID { set; get; }
 
         [Required]
         [MaxLength(50)]
