@@ -3,7 +3,7 @@ using TShop.Model.Models;
 
 namespace TShop.Data.Repositories
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepository<Product>
     {
     }
 
