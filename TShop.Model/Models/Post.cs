@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TShop.Model.Models
 {
-    [Table("Pages")]
+    [Table("Posts")]
     public class Post
     {
         [Key]

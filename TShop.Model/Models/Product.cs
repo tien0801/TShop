@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
@@ -8,10 +8,11 @@ namespace TShop.Model.Models
 {
     [Table("Products")]
     public class Product : Auditable
-    {     
+    {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
+
         [Required]
         public string Name { set; get; }
 
@@ -20,10 +21,13 @@ namespace TShop.Model.Models
 
         [Required]
         public int CategoryID { set; get; }
+
         [MaxLength(256)]
         public string Image { set; get; }
 
-        public XElement MoreImages { set; get; }
+        [Column(TypeName = "xml")]
+        public string MoreImages { set; get; }
+
         public decimal Price { set; get; }
 
         public decimal? PromotionPrice { set; get; }

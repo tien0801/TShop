@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TShop.Model.Model
+namespace TShop.Model.Models
 {
     [Table("Footers")]
     public class Footer
@@ -12,5 +12,6 @@ namespace TShop.Model.Model
 
         [Required]
         public string Content { set; get; }
+        
     }
 }

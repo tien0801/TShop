@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TShop.Model.Model
+namespace TShop.Model.Models
 {
     [Table("Menus")]
     public class Menu
@@ -14,12 +14,15 @@ namespace TShop.Model.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
+
         [Required]
         [MaxLength(50)]
         public string Name { set; get; }
+
         [Required]
         [MaxLength(256)]
         public string URL { set; get; }
+
         public int? DisplayOrder { set; get; }
 
         [Required]

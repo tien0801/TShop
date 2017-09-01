@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TShop.Model.Model
+namespace TShop.Model.Models
 {
     [Table("MenuGroups")]
     public class MenuGroup
