@@ -12,6 +12,5 @@ namespace TShop.Model.Models
 
         [Required]
         public string Content { set; get; }
-        
     }
 }

@@ -11,7 +11,6 @@ namespace TShop.Data.Repositories
     {
         public OrderRepository(IDbFactory dbFactory) : base(dbFactory)
         {
-
         }
     }
 }

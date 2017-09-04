@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +7,7 @@ using TShop.Model.Abstract;
 namespace TShop.Model.Models
 {
     [Table("Orders")]
-    public class Order: Auditable
+    public class Order : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -34,7 +33,6 @@ namespace TShop.Model.Models
         [MaxLength(256)]
         public string CustomerMessage { set; get; }
 
-        
         [MaxLength(256)]
         public string PaymentMethod { set; get; }
 

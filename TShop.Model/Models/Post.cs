@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TShop.Model.Abstract;
 
 namespace TShop.Model.Models
 {
     [Table("Posts")]
-    public class Post
+    public class Post: Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -37,9 +34,11 @@ namespace TShop.Model.Models
 
         public bool? HomeFlag { set; get; }
         public bool? HotFlag { set; get; }
-        public int Viewcount { set; get; }
+        public int? Viewcount { set; get; }
 
         [ForeignKey("CategoryID")]
         public virtual PostCategory PostCategory { set; get; }
+
+        public virtual IEnumerable<PostTag> PostTags { set; get; }
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TShop.Data.Infrastructure
 {
@@ -14,11 +10,13 @@ namespace TShop.Data.Infrastructure
         {
             Dispose(false);
         }
+
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
         public void Dispose(bool disposing)
         {
             if (!isDisposed && disposing)
@@ -27,11 +25,10 @@ namespace TShop.Data.Infrastructure
             }
             isDisposed = true;
         }
+
         //Override this to dispose custom objects
         protected virtual void DisposeCore()
         {
-            
         }
-
     }
 }

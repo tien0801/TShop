@@ -1,7 +1,5 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 using TShop.Model.Abstract;
 
 namespace TShop.Model.Models
@@ -35,6 +33,7 @@ namespace TShop.Model.Models
 
         [MaxLength(500)]
         public string Description { set; get; }
+
         public string Content { set; get; }
 
         public bool? HomeFlag { set; get; }
