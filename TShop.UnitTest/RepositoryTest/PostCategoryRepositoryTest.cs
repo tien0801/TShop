@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using TShop.Data.Infrastructure;
 using TShop.Data.Repositories;
 using TShop.Model.Models;
@@ -8,9 +9,9 @@ namespace TShop.UnitTest.RepositoryTest
     [TestClass]
     public class PostCategoryRepositoryTest
     {
-        IDbFactory dbFactory;
-        IPostCategoryRepository objRepository;
-        IUnitOfWork unitOfWork;
+        private IDbFactory dbFactory;
+        private IPostCategoryRepository objRepository;
+        private IUnitOfWork unitOfWork;
 
         [TestInitialize]
         public void Initialize()
@@ -21,10 +22,17 @@ namespace TShop.UnitTest.RepositoryTest
         }
 
         [TestMethod]
+        public void PostCategory_Repository_GetAll()
+        {
+            var list = objRepository.GetAll().ToList();
+            Assert.AreEqual(3, list.Count);
+        }
+
+        [TestMethod]
         public void PostCategory_Repository_Create()
         {
             PostCategory category = new PostCategory();
-            category.Name = "Test Category";
+            category.Name = "Test category";
             category.Alias = "Test-category";
             category.Status = true;
 
@@ -32,8 +40,7 @@ namespace TShop.UnitTest.RepositoryTest
             unitOfWork.Commit();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(1, result.ID);
+            Assert.AreEqual(3, result.ID);
         }
-
     }
 }

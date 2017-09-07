@@ -12,34 +12,27 @@ namespace TShop.Web.Api
     {
         private IPostCategoryService _postCategoryService;
 
-        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) : base(errorService)
+        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) :
+            base(errorService)
         {
             this._postCategoryService = postCategoryService;
         }
+
         [Route("getall")]
         public HttpResponseMessage Get(HttpRequestMessage request)
         {
-            //Ham nap danh
             return CreateHttpResponse(request, () =>
             {
-                HttpResponseMessage response = null;
-                if (ModelState.IsValid)
-                {
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var listCategory = _postCategoryService.GetAll();
+                var listCategory = _postCategoryService.GetAll();
 
-                    response = request.CreateResponse(HttpStatusCode.OK, listCategory);
-                }
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategory);
+
                 return response;
             });
         }
 
         public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
         {
-            //Ham nap danh
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
@@ -60,7 +53,6 @@ namespace TShop.Web.Api
 
         public HttpResponseMessage Put(HttpRequestMessage request, PostCategory postCategory)
         {
-            //Ham nap danh
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
@@ -70,7 +62,7 @@ namespace TShop.Web.Api
                 }
                 else
                 {
-                    _postCategoryService.Add(postCategory);
+                    _postCategoryService.Update(postCategory);
                     _postCategoryService.Save();
 
                     response = request.CreateResponse(HttpStatusCode.OK);
@@ -81,7 +73,6 @@ namespace TShop.Web.Api
 
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
-            //Ham nap danh
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
