@@ -1,9 +1,10 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using TShop.Model.Models;
 
 namespace TShop.Data
 {
-    public class TShopDbContext : DbContext
+    public class TShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public TShopDbContext() : base("TShopConnection")
         {
@@ -33,8 +34,15 @@ namespace TShop.Data
 
         public DbSet<Error> Errors { set; get; }
 
+        public static TShopDbContext Create()
+        {
+            return new TShopDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder builder)
         {
+            builder.Entity<IdentityUserRole>().HasKey(i=> new { i.UserId, i.RoleId });
+            builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }
