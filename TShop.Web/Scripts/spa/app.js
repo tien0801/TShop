@@ -1,16 +1,19 @@
-﻿/// <reference path="../plugins/angular/angular.js" />
+﻿/// <reference path="tShopDirective.html" />
+/// <reference path="../plugins/angular/angular.js" />
 
 var myApp = angular.module('myModule', []);
 
 myApp.controller("schoolController", schoolController);
-myApp.service('Validator', Validator);
 
-schoolController.$inject=['$scope', 'Validator'];
+myApp.directive("tShopDirective", tShopDirective);
 
-function schoolController($scope, Validator) {
+myApp.service('validatorService', Validator);
+
+schoolController.$inject = ['$scope', 'validatorService'];
+
+function schoolController($scope, validatorService) {
     $scope.checkNumber = function () {
-        $scope.message = Validator.checkNumber(2);
-       
+        $scope.message = validatorService.checkNumber(2);
     }
     $scope.num = 1;
 }
@@ -26,5 +29,12 @@ function Validator($window) {
         else {
             return 'this is odd';
         }
+    }
+}
+
+function tShopDirective() {
+    return {
+        restrict: "A",
+        templateUrl: "/Scripts/spa/tShopDirective.html"
     }
 }
