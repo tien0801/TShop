@@ -461,6 +461,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\dbTShop_bai22.sql" />
     <Content Include="Scripts\plugins\angular\angular-csp.css" />
     <Content Include="Scripts\plugins\angular\angular.js" />
     <Content Include="Scripts\plugins\angular\angular.min.js" />
@@ -696,6 +697,9 @@
     <Content Include="Assets\admin\libs\slimScroll\bower.json" />
     <Content Include="Assets\admin\libs\slimScroll\package.json" />
     <Content Include="Assets\admin\libs\slimScroll\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\AdminLTE-2.4.0-rc.zip" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
