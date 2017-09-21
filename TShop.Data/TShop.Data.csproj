@@ -78,6 +78,14 @@
     <Compile Include="Migrations\201709110243099_Changekey.Designer.cs">
       <DependentUpon>201709110243099_Changekey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709200804470_ChangeName-ProductCategory.cs" />
+    <Compile Include="Migrations\201709200804470_ChangeName-ProductCategory.Designer.cs">
+      <DependentUpon>201709200804470_ChangeName-ProductCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709200924396_Update-ProductCategory.cs" />
+    <Compile Include="Migrations\201709200924396_Update-ProductCategory.Designer.cs">
+      <DependentUpon>201709200924396_Update-ProductCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -128,6 +136,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709110243099_Changekey.resx">
       <DependentUpon>201709110243099_Changekey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709200804470_ChangeName-ProductCategory.resx">
+      <DependentUpon>201709200804470_ChangeName-ProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709200924396_Update-ProductCategory.resx">
+      <DependentUpon>201709200924396_Update-ProductCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

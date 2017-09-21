@@ -21,7 +21,6 @@ namespace TShop.Data
         public DbSet<PostCategory> PostCategories { set; get; }
         public DbSet<PostTag> PostTags { set; get; }
         public DbSet<Product> Products { set; get; }
-
         public DbSet<ProductCategory> ProductCategories { set; get; }
         public DbSet<ProductTag> ProductTags { set; get; }
         public DbSet<Slide> Slides { set; get; }
@@ -41,7 +40,7 @@ namespace TShop.Data
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-            builder.Entity<IdentityUserRole>().HasKey(i=> new { i.UserId, i.RoleId });
+            builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
             builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }

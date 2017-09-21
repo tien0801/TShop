@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace TShop.Web.Models
 {
-    public class PostViewModel
+    public class ProductViewModel
     {
         public int ID { set; get; }
 
@@ -15,6 +14,14 @@ namespace TShop.Web.Models
 
         public string Image { set; get; }
 
+        public string MoreImages { set; get; }
+
+        public decimal Price { set; get; }
+
+        public decimal? PromotionPrice { set; get; }
+
+        public int? Warranty { set; get; }
+
         public string Description { set; get; }
 
         public string Content { set; get; }
@@ -23,7 +30,7 @@ namespace TShop.Web.Models
 
         public bool? HotFlag { set; get; }
 
-        public int? Viewcount { set; get; }
+        public int? ViewCount { set; get; }
 
         public DateTime? CreatedDate { set; get; }
 
@@ -39,10 +46,6 @@ namespace TShop.Web.Models
 
         public bool Status { set; get; }
 
-        public virtual PostCategoryViewModel PostCategory { set; get; }
-
-        public virtual IEnumerable<PostTagViewModel> PostTags { set; get; }
-
-      
+        public virtual ProductCategoryViewModel ProductCategory { set; get; }
     }
 }

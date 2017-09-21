@@ -1,19 +1,22 @@
-﻿using Autofac;
-using Autofac.Integration.Mvc;
-using Autofac.Integration.WebApi;
-using Microsoft.AspNet.Identity;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.Owin;
-using Microsoft.Owin.Security.DataProtection;
 using Owin;
+using Autofac;
 using System.Reflection;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
-using TShop.Data;
 using TShop.Data.Infrastructure;
 using TShop.Data.Repositories;
-using TShop.Model.Models;
 using TShop.Service;
+using System.Web.Mvc;
+using System.Web.Http;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
+using TShop.Data;
+using Microsoft.AspNet.Identity;
+using TShop.Model.Models;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataProtection;
+using System.Web;
 
 [assembly: OwinStartup(typeof(TShop.Web.App_Start.Startup))]
 

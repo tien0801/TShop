@@ -12,7 +12,7 @@ namespace TShop.Data.Repositories
 
     public class ProductCategoryRepository : RepositoryBase<ProductCategory>, IProductCategoryRepository
     {
-        public ProductCategoryRepository(DbFactory dbFactory) : base(dbFactory)
+        public ProductCategoryRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
 
