@@ -29,9 +29,7 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Khong tim thay ban ghi nao');
                 }
-                else {
-                    notificationService.displaySuccess('Tim thay: '+ result.data.TotalCount +' ban ghi');
-                }
+                
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
