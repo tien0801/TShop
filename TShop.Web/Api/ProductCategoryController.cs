@@ -24,13 +24,13 @@ namespace TShop.Web.Api
         }
 
         [Route("getall")]
-        public HttpResponseMessage GetAll(HttpRequestMessage request, int page, int pageSize = 10)
+        public HttpResponseMessage GetAll(HttpRequestMessage request,string keyword, int page, int pageSize = 10)
         {
             return CreateHttpResponse(request, () =>
             {
                 int totalRow = 0;
+                var model = _ProductCategoryService.GetAll(keyword);
 
-                var model = _ProductCategoryService.GetAll();
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
 
