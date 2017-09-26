@@ -13,7 +13,7 @@
         function AddProductCategory() {
             apiService.post('api/productcategory/create', $scope.productCategory,
                 function (result) {
-                    notificationService.displaySuccess(result.data.Name + 'đã thêm mới');
+                    notificationService.displaySuccess(result.data.Name + ' đã thêm mới');
                     $state.go('product_categories');
                 }, function (error) {
                     notificationService.displayError('Thêm mới không thành công.');
