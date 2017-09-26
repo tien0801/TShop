@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TShop.Data.Infrastructure;
 using TShop.Data.Repositories;
 using TShop.Model.Models;
@@ -19,7 +15,7 @@ namespace TShop.Service
 
         IEnumerable<Product> GetAll();
 
-        //IEnumerable<Product> GetAllByParentId(int parentId);
+        IEnumerable<Product> GetAll(string keyword);
 
         Product GetById(int id);
 
@@ -28,38 +24,41 @@ namespace TShop.Service
 
     public class ProductService : IProductService
     {
-        private IProductRepository _ProductRepository;
+        private IProductRepository _productRepository;
         private IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository ProductRepository, IUnitOfWork unitOfWork)
+        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork)
         {
-            this._ProductRepository = ProductRepository;
+            this._productRepository = productRepository;
             this._unitOfWork = unitOfWork;
         }
 
         public Product Add(Product Product)
         {
-            return _ProductRepository.Add(Product);
+            return _productRepository.Add(Product);
         }
 
         public Product Delete(int id)
         {
-            return _ProductRepository.Delete(id);
+            return _productRepository.Delete(id);
         }
 
         public IEnumerable<Product> GetAll()
         {
-            return _ProductRepository.GetAll();
+            return _productRepository.GetAll();
         }
 
-        //public IEnumerable<Product> GetAllByParentId(int parentId)
-        //{
-        //    return _ProductRepository.GetMulti(x => x.Status && x.ParentID == parentId);
-        //}
+        public IEnumerable<Product> GetAll(string keyword)
+        {
+            if (!string.IsNullOrEmpty(keyword))
+                return _productRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword));
+            else
+                return _productRepository.GetAll();
+        }
 
         public Product GetById(int id)
         {
-            return _ProductRepository.GetSingleById(id);
+            return _productRepository.GetSingleById(id);
         }
 
         public void Save()
@@ -69,7 +68,7 @@ namespace TShop.Service
 
         public void Update(Product Product)
         {
-            _ProductRepository.Update(Product);
+            _productRepository.Update(Product);
         }
     }
 }

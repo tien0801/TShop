@@ -18,6 +18,7 @@ namespace TShop.Web.Api
     public class ProductCategoryController : ApiControllerBase
     {
         #region Initialize
+
         private IProductCategoryService _productCategoryService;
 
         public ProductCategoryController(IErrorService errorService, IProductCategoryService ProductCategoryService)
@@ -25,7 +26,8 @@ namespace TShop.Web.Api
         {
             this._productCategoryService = ProductCategoryService;
         }
-        #endregion
+
+        #endregion Initialize
 
         [Route("getallparents")]
         [HttpGet]
@@ -163,6 +165,7 @@ namespace TShop.Web.Api
                 return response;
             });
         }
+
         [Route("deletemulti")]
         [HttpDelete]
         [AllowAnonymous]
@@ -190,7 +193,5 @@ namespace TShop.Web.Api
                 return response;
             });
         }
-
-
     }
 }
